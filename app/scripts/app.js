@@ -37,6 +37,14 @@ app.config(function ($routeProvider) {
       templateUrl: 'views/login.html',
       controller: 'AuthCtrl'
     })
+    .when('/recipes', {
+      templateUrl: 'views/recipes.html',
+      controller: 'RecipesCtrl'
+    })
+    .when('/recipes/:recipeId', {
+      templateUrl: 'views/showrecipe.html',
+      controller: 'RecipeCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     });

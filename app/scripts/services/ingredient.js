@@ -1,7 +1,7 @@
 'use strict';
 
 app.factory('Ingredient', function($firebase, FIREBASE_URL, User) {
-  var ref = new Firebase(FIREBASE_URL + 'users');
+  var ref = new Firebase(FIREBASE_URL + 'ingredients');
   var ingredients = $firebase(ref).$asArray();
 
   var Ingredient = {
