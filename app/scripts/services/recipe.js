@@ -35,8 +35,11 @@ app.factory('Recipe', function($firebase, FIREBASE_URL, User) {
         }
       }
     },
-    ingredients: function (username) {
-      return $firebase(new Firebase(FIREBASE_URL + 'recipe_ingredients/' + username));
+    addIngredient: function(recipeId, ingredient) {
+      return Recipe.ingredients(recipeId).$set(ingredient, ingredient);
+    },
+    ingredients: function (recipe) {
+      return $firebase(new Firebase(FIREBASE_URL + 'recipe_ingredients/' + recipe));
     }
   };
 

@@ -3,6 +3,7 @@
 app.controller('RecipeCtrl', function($scope, $location, $routeParams, Recipe, Ingredient) {
 
   $scope.recipe = Recipe.find($routeParams.recipeId);
+  $scope.recipeIngredients = Recipe.ingredients($routeParams.recipeId).$asArray();
 
   //TODO this needs to be filtered and loaded on demand!
   $scope.ingredients = Ingredient.all;
@@ -13,11 +14,8 @@ app.controller('RecipeCtrl', function($scope, $location, $routeParams, Recipe, I
     });
   };
 
-  $scope.ingredientSelected = function() {
-    if (!$scope.recipe.ingredients) {
-      $scope.recipe.ingredients = [];
-    }
-    $scope.recipe.ingredients.push($scope.ingredient);
+  $scope.ingredientSelected = function(recipeId) {
+    Recipe.addIngredient(recipeId, $scope.ingredient);
     $scope.ingredient = "";
   }
 });
