@@ -1,0 +1,13 @@
+<div class="row" ng-show="signedIn()">
+  <div class="col-xs-12">
+    <p>Edit your Ingredient</p>
+  </div>
+  <form role="search" ng-submit="submitIngredient()">
+    <div class="form-group col-xs-12">
+      <input type="text" class="form-control" placeholder="Title" ng-model="ingredient.title">
+    </div>
+    <div class="form-group col-xs-12">
+      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+  </form>
+</div>

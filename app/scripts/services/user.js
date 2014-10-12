@@ -28,6 +28,9 @@ app.factory('User', function ($firebase, FIREBASE_URL, Auth, $rootScope) {
     recipes: function (username) {
       return $firebase(new Firebase(FIREBASE_URL + 'user_recipes/' + username));
     },
+    ingredients: function (username) {
+      return $firebase(new Firebase(FIREBASE_URL + 'user_ingredients/' + username));
+    }
   };
 
   $rootScope.$on('$firebaseSimpleLogin:login', function (e, authUser) {
