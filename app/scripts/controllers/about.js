@@ -7,5 +7,5 @@
  * # AboutCtrl
  * Controller of the grocerApp
  */
-app.controller('AboutCtrl', function ($scope) {
+app.controller('AboutCtrl', function () {
 });
