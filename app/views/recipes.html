@@ -21,14 +21,14 @@
   <div class="col-md-9 col-xs-11">
 
     <div class="info">
-      <a href="#/recipes/{{ recipe.$id }}">
+      <a href="#/recipes/{{ recipe.$id }}/edit">
         {{ recipe.title }}
       </a>
     </div>
     <div>
       <span>submitted by <a href="#/users/{{ recipe.owner }}">{{ recipe.owner }}</a></span>
       &mdash;
-      <a ng-click="deleteRecipe(recipe.$id)" ng-show="signedIn() && recipe.owner === currentUser.username">delete</a>
+      <a ng-click="deleteRecipe(recipe)" ng-show="signedIn() && recipe.owner === currentUser.username">delete</a>
     </div>
   </div>
   <div class="col-md-2">
