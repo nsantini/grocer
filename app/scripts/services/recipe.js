@@ -34,6 +34,9 @@ app.factory('Recipe', function($firebase, FIREBASE_URL, User) {
           });
         }
       }
+    },
+    ingredients: function (username) {
+      return $firebase(new Firebase(FIREBASE_URL + 'recipe_ingredients/' + username));
     }
   };
 
