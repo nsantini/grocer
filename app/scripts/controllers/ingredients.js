@@ -9,7 +9,7 @@ app.controller('IngredientsCtrl', function($scope, $location, Ingredient) {
 
   $scope.submitIngredient = function() {
     Ingredient.create($scope.ingredient).then(function(ingredientId) {
-      $location.path('/ingredients/' + ingredientId + '/edit');
+      // $location.path('/ingredients/' + ingredientId + '/edit');
     });
   };
 });
