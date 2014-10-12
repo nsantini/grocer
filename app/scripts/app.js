@@ -29,9 +29,17 @@ app.config(function ($routeProvider) {
       templateUrl: 'views/about.html',
       controller: 'AboutCtrl'
     })
+    .when('/register', {
+      templateUrl: 'views/register.html',
+      controller: 'AuthCtrl'
+    })
+    .when('/login', {
+      templateUrl: 'views/login.html',
+      controller: 'AuthCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     });
 });
 
-app.constant('FIREBASE_URL', 'https://PUT-YOUR-FIREBASE-URL-HERE.firebaseio.com/');
+app.constant('FIREBASE_URL', 'https://dazzling-heat-538.firebaseio.com/');
