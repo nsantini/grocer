@@ -49,6 +49,18 @@ app.config(function ($routeProvider) {
       templateUrl: 'views/editrecipe.html',
       controller: 'RecipeCtrl'
     })
+    .when('/ingredients', {
+      templateUrl: 'views/ingredients.html',
+      controller: 'IngredientsCtrl'
+    })
+    .when('/ingredients/:ingredientId', {
+      templateUrl: 'views/showingredient.html',
+      controller: 'IngredientCtrl'
+    })
+    .when('/ingredients/:ingredientId/edit', {
+      templateUrl: 'views/editingredient.html',
+      controller: 'IngredientCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     });
