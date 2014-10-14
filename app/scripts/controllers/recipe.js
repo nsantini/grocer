@@ -9,13 +9,13 @@ app.controller('RecipeCtrl', function($scope, $location, $routeParams, Recipe, I
   $scope.ingredients = Ingredient.all;
 
   $scope.submitRecipe = function() {
-    Recipe.create($scope.recipe).then(function(recipeId) {
+    Recipe.save($scope.recipe).then(function(recipeId) {
       $location.path('/recipes/' + recipeId);
     });
   };
 
   $scope.ingredientSelected = function(recipeId) {
-    Recipe.addIngredient(recipeId, $scope.ingredient);
+    Recipe.addIngredient(recipeId, $scope.ingredient.split('|')[0], $scope.ingredient.split('|')[1]);
     $scope.ingredient = "";
   }
 });

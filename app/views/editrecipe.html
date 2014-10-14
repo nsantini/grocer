@@ -17,7 +17,7 @@
       <span  class="nullable">
         <select ng-model="ingredient" ng-change="ingredientSelected(recipe.$id)">
           <option value="">-- choose ingredient --</option>
-          <option ng-repeat="ingredient in ingredients" value="{{ingredient.$id}}">{{ingredient.title}}</option>
+          <option ng-repeat="ingredient in ingredients" value="{{ingredient.$id}}|{{ingredient.title}}">{{ingredient.title}}</option>
         </select>
       </span><br/>
     </div>

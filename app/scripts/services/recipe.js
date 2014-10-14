@@ -22,6 +22,11 @@ app.factory('Recipe', function($firebase, FIREBASE_URL, User) {
         });
       }
     },
+    save: function(recipe) {
+      return recipe.$save().then(function (ref) {
+        return ref.name();
+      });
+    },
     find: function(recipeId) {
       return $firebase(ref.child(recipeId)).$asObject();
     },
@@ -35,8 +40,8 @@ app.factory('Recipe', function($firebase, FIREBASE_URL, User) {
         }
       }
     },
-    addIngredient: function(recipeId, ingredient) {
-      return Recipe.ingredients(recipeId).$set(ingredient, ingredient);
+    addIngredient: function(recipeId, ingredientId, ingredientTitle) {
+      return Recipe.ingredients(recipeId).$set(ingredientId, ingredientTitle);
     },
     ingredients: function (recipe) {
       return $firebase(new Firebase(FIREBASE_URL + 'recipe_ingredients/' + recipe));
