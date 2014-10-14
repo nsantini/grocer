@@ -1,0 +1,37 @@
+<div class="row" ng-show="signedIn()">
+  <div class="col-xs-12">
+    <p>Create a new Recipe</p>
+  </div>
+  <form role="search" ng-submit="submitRecipe()">
+    <div class="form-group col-xs-9">
+      <input type="text" class="form-control" placeholder="Title" ng-model="recipe.title">
+    </div>
+    <div class="col-xs-3">
+      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+  </form>
+</div>
+<div class="row">
+  <h2>Recipes</h2>
+</div>
+<div class="row" ng-repeat="recipe in recipes">
+  <div class="col-xs-1">
+
+  </div>
+  <div class="col-md-9 col-xs-11">
+
+    <div class="info">
+      <a href="#/recipes/{{ recipe.$id }}">
+        {{ recipe.title }}
+      </a>
+    </div>
+    <div>
+      <span>submitted by <a href="#/users/{{ recipe.owner }}">{{ recipe.owner }}</a></span>
+      &mdash;
+      <a ng-click="deleteRecipe(recipe)" ng-show="signedIn() && recipe.owner === currentUser.username">delete</a>
+    </div>
+  </div>
+  <div class="col-md-2">
+
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<ul class="nav nav-pills pull-right" ng-controller="NavCtrl">
+  <li ng-class="{ active: isActive('/')}"><a ng-href="#">Home</a></li>
+  <li ng-class="{ active: isActive('/about')}"><a ng-href="#/about">About</a></li>
+  <li ng-class="{ active: isActive('/recipes')}"><a ng-href="#/recipes">Recipes</a></li>
+  <li ng-class="{ active: isActive('/ingredients')}"><a ng-href="#/ingredients">Ingredients</a></li>
+  <li ng-class="{ active: isActive('/login')}" ng-show="!signedIn()"><a ng-href="#/login">Login</a></li>
+  <li ng-class="{ active: isActive('/register')}" ng-show="!signedIn()"><a ng-href="#/register">Register</a></li>
+  <li ng-show="signedIn()">
+    <a href="#/users/{{ currentUser.username }}">
+      <img ng-src="http://www.gravatar.com/avatar/{{ currentUser.md5_hash }}" class="nav-pic" />
+      {{ currentUser.username }}
+    </a>
+  </li>
+  <li ng-show="signedIn()">
+    <a href="#" ng-click="logout()">Logout</a>
+  </li>
+</ul>
