@@ -16,6 +16,11 @@ app.controller('RecipeCtrl', function($scope, $location, $routeParams, Recipe, I
 
   $scope.ingredientSelected = function(recipeId) {
     Recipe.addIngredient(recipeId, $scope.ingredient.split('|')[0], $scope.ingredient.split('|')[1]);
-    $scope.ingredient = "";
-  }
+    $scope.ingredient = '';
+  };
+
+  $scope.deleteRecipe = function(recipe) {
+    Recipe.remove(recipe);
+    $location.path('/recipes');
+  };
 });
