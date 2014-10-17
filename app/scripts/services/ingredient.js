@@ -25,8 +25,13 @@ app.factory('Ingredient', function($firebase, FIREBASE_URL, User) {
     find: function(ingredientId) {
       return $firebase(ref.child(ingredientId)).$asObject();
     },
+    save: function(ingredient) {
+      return ingredient.$save().then(function (ref) {
+        return ref.name();
+      });
+    },
     delete: function(ingredient) {
-      if (User.signedIn()){
+      if (User.signedIn()) {
         var user = User.getCurrent();
         if (user.username === ingredient.owner) {
           ingredients.$remove(ingredient).then(function () {
