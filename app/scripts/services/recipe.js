@@ -51,6 +51,9 @@ app.factory('Recipe', function($firebase, FIREBASE_URL, User) {
     addIngredient: function(recipeId, ingredientId, ingredientTitle) {
       return Recipe.ingredients(recipeId).$set(ingredientId, ingredientTitle);
     },
+    removeIngredient: function(recipeId, ingredientId) {
+      return Recipe.ingredients(recipeId).$remove(ingredientId);
+    },
     ingredients: function (recipe) {
       return $firebase(new Firebase(FIREBASE_URL + 'recipe_ingredients/' + recipe));
     }

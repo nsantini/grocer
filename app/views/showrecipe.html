@@ -2,6 +2,7 @@
   <div class="col-xs-12">
     <h2>{{recipe.title}}</h2>
     <a ng-click="deleteRecipe(recipe)" ng-show="signedIn() && recipe.owner === currentUser.username">delete</a>
+    <a href="#/recipes/{{ recipe.$id }}/edit" ng-show="signedIn() && recipe.owner === currentUser.username">edit</a>
   </div>
   <div class="col-xs-12">
     <h4>Ingredients</h4>

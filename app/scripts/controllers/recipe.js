@@ -23,4 +23,8 @@ app.controller('RecipeCtrl', function($scope, $location, $routeParams, Recipe, I
     Recipe.remove(recipe);
     $location.path('/recipes');
   };
+
+  $scope.removeIngredient = function(ingredient) {
+    Recipe.removeIngredient($scope.recipe.$id, ingredient.$id);
+  };
 });

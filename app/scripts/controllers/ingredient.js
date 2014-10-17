@@ -9,4 +9,10 @@ app.controller('IngredientCtrl', function($scope, $location, $routeParams, Ingre
       $location.path('/ingredients/' + ingredientId);
     });
   };
+
+  $scope.editIngredient = function() {
+    Ingredient.save($scope.ingredient).then(function(ingredientId) {
+      $location.path('/ingredients/' + ingredientId);
+    });
+  };
 });
