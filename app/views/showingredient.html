@@ -1,5 +1,6 @@
 <div class="row" ng-show="signedIn()">
   <div class="col-xs-12">
     <h2>{{ingredient.title}}</h2>
+    <a href="#/ingredients/{{ ingredient.$id }}/edit" ng-show="signedIn() && ingredient.owner === currentUser.username">edit</a>
   </div>
 </div>
