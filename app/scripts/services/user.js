@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('User', function ($firebase, FIREBASE_URL, Auth, $rootScope) {
+app.factory('User', function ($rootScope, $firebase, FIREBASE_URL, Auth, Schedule) {
   var ref = new Firebase(FIREBASE_URL + 'users');
 
   var User = {
@@ -12,6 +12,7 @@ app.factory('User', function ($firebase, FIREBASE_URL, Auth, $rootScope) {
         user.md5_hash = authUser.md5_hash;
         user.$priority = authUser.uid;
         user.$save();
+        Schedule.create(user);
       });
     },
     findByUsername: function (username) {
@@ -47,6 +48,7 @@ app.factory('User', function ($firebase, FIREBASE_URL, Auth, $rootScope) {
 
   function setCurrentUser (username) {
     $rootScope.currentUser = User.findByUsername(username);
+    $rootScope.$broadcast('CurrentUserSet');
   }
 
   return User;

@@ -1,0 +1,29 @@
+<div class="row">
+  <h2>Meal Schedule</h2>
+</div>
+<div class="row" ng-repeat="day in days">
+  <h3>{{day.$value}}</h3>
+  <div class="row" ng-repeat="recipe in dayRecipes[day.$id]">
+    <div class="col-xs-1">
+
+    </div>
+    <div class="col-md-9 col-xs-11">
+
+      <div class="info">
+        <a href="#/recipes/{{ recipe.$id }}">
+          {{ recipe.title }}
+        </a>
+        <span>&mdash;submitted by <a href="#/users/{{ recipe.owner }}">{{ recipe.owner }}</a></span>
+      </div>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+  </div>
+  <span  class="nullable">
+    <select ng-model="rec" ng-change="recipeSelected(day.$id)">
+      <option value="">-- choose recipe --</option>
+      <option ng-repeat="r in allRecipes" value="{{r.$id}}|{{r.title}}">{{r.title}}</option>
+    </select>
+  </span>
+</div>

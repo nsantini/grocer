@@ -3,7 +3,7 @@
 app.controller('RecipeCtrl', function($scope, $location, $routeParams, Recipe, Ingredient) {
 
   $scope.recipe = Recipe.find($routeParams.recipeId);
-  $scope.recipeIngredients = Recipe.ingredients($routeParams.recipeId).$asArray();
+  $scope.recipeIngredients = Recipe.ingredientsAsArray($routeParams.recipeId);
 
   //TODO this needs to be filtered and loaded on demand!
   $scope.ingredients = Ingredient.all;
