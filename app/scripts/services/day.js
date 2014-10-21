@@ -15,7 +15,10 @@ app.factory('Day', function($firebase, FIREBASE_URL) {
       return Day.recipes(dayId).$asArray();
     },
     addRecipe: function(dayId, recipeId, recipeTitle) {
-      return Recipe.ingredients(dayId).$set(recipeId, recipeTitle);
+      return Day.recipes(dayId).$set(recipeId, recipeTitle);
+    },
+    removeRecipe: function(dayId, recipeId) {
+      return Day.recipes(dayId).$remove(recipeId);
     }
   };
 

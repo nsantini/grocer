@@ -11,9 +11,9 @@
 
       <div class="info">
         <a href="#/recipes/{{ recipe.$id }}">
-          {{ recipe.title }}
+          {{ recipe.$value }}
         </a>
-        <span>&mdash;submitted by <a href="#/users/{{ recipe.owner }}">{{ recipe.owner }}</a></span>
+        <span>&mdash; <a ng-click="removeRecipe(day.$id, recipe.$id)">remove</a></span>
       </div>
     </div>
     <div class="col-md-2">
@@ -21,7 +21,7 @@
     </div>
   </div>
   <span  class="nullable">
-    <select ng-model="rec" ng-change="recipeSelected(day.$id)">
+    <select ng-model="rec[day.$id]" ng-change="recipeSelected(day.$id)">
       <option value="">-- choose recipe --</option>
       <option ng-repeat="r in allRecipes" value="{{r.$id}}|{{r.title}}">{{r.title}}</option>
     </select>
