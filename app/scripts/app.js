@@ -60,6 +60,10 @@ app.config(function ($routeProvider) {
       templateUrl: 'views/schedule.html',
       controller: 'ScheduleCtrl'
     })
+    .when('/grocerylist', {
+      templateUrl: 'views/grocerylist.html',
+      controller: 'GrocerylistCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     });

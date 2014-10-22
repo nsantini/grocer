@@ -4,14 +4,12 @@ app.controller('ScheduleCtrl', function($scope, User, Schedule, Day, Recipe) {
 
   function loadSchedule() {
     var user = User.getCurrent();
-    var days = Schedule.scheduleDaysAsArray(user.$id);
-    days.$loaded().then(function() {
+    Schedule.scheduleDaysAsArray(user.$id).$loaded().then(function(days) {
       $scope.days = days;
-      $scope.dayRecipes = {};
-      $scope.rec = {};
-      for (var day in days) {
-        $scope.dayRecipes[days[day].$id] = Day.recipesAsArray(days[day].$id);
-        $scope.rec[days[day].$id] = '';
+      for (var d = 0; d < days.length; d++) {
+        var dayId = days.$getRecord(days.$keyAt(d)).$id;
+        $scope.dayRecipes[dayId] = Day.recipesAsArray(dayId);
+        $scope.rec[dayId] = '';
       }
     });
   }
@@ -19,6 +17,10 @@ app.controller('ScheduleCtrl', function($scope, User, Schedule, Day, Recipe) {
   if (User.signedIn()) {
     loadSchedule();
   }
+
+  $scope.days = [];
+  $scope.dayRecipes = {};
+  $scope.rec = {};
 
   $scope.$on('CurrentUserSet', function () {
     loadSchedule();
