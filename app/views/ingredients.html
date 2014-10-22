@@ -24,6 +24,9 @@
       <a href="#/ingredients/{{ ingredient.$id }}">
         {{ ingredient.title }}
       </a>
+      <a href="#/ingredients/{{ ingredient.$id }}/edit" ng-show="signedIn()">
+        <span class="glyphicon glyphicon-pencil"></span>
+      </a>
     </div>
   </div>
   <div class="col-md-2">

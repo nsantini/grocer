@@ -24,7 +24,12 @@
       <a href="#/recipes/{{ recipe.$id }}">
         {{ recipe.title }}
       </a>
-      <a ng-click="deleteRecipe(recipe)" ng-show="signedIn()">delete</a>
+      <a href="#/recipes/{{ recipe.$id }}/edit" ng-show="signedIn()">
+        <span class="glyphicon glyphicon-pencil"></span>
+      </a>
+      <a ng-click="deleteRecipe(recipe)" ng-show="signedIn()">
+        <span class="glyphicon glyphicon-remove">
+      </a>
     </div>
   </div>
   <div class="col-md-2">
