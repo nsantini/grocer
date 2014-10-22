@@ -8,7 +8,9 @@
       <a href="#/recipes/{{ recipe.$id }}">
         {{ recipe.$value }}
       </a>
-      <a ng-click="removeRecipe(day.$id, recipe.$id)">remove</a>
+      <a ng-click="removeRecipe(day.$id, recipe.$id)">
+        <span class="glyphicon glyphicon-remove">
+      </a>
     </div>
     <div class="col-md-2">
 
