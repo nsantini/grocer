@@ -1,0 +1,6 @@
+<div class="row">
+  <h2>Grocery List</h2>
+</div>
+<div class="row" ng-repeat="(key, value) in ingredients track by $index">
+  {{ key }}: {{ value }}
+</div>

@@ -9,5 +9,6 @@ app.controller('IngredientsCtrl', function($scope, $location, Ingredient) {
 
   $scope.submitIngredient = function() {
     Ingredient.create($scope.ingredient);
+    $scope.ingredient = '';
   };
 });

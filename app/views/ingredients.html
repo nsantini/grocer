@@ -12,7 +12,7 @@
   </form>
 </div>
 <div class="row">
-  <h2>ingredients</h2>
+  <h2>Ingredients</h2>
 </div>
 <div class="row" ng-repeat="ingredient in ingredients">
   <div class="col-xs-1">
@@ -24,9 +24,9 @@
       <a href="#/ingredients/{{ ingredient.$id }}">
         {{ ingredient.title }}
       </a>
-    </div>
-    <div>
-      <span>submitted by <a href="#/users/{{ ingredient.owner }}">{{ ingredient.owner }}</a></span>
+      <a href="#/ingredients/{{ ingredient.$id }}/edit" ng-show="signedIn()">
+        <span class="glyphicon glyphicon-pencil"></span>
+      </a>
     </div>
   </div>
   <div class="col-md-2">

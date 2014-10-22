@@ -10,12 +10,7 @@
  * Main module of the application.
  */
 var app = angular.module('grocerApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
     'ngRoute',
-    'ngSanitize',
-    'ngTouch',
     'firebase'
   ]);
 
@@ -60,6 +55,14 @@ app.config(function ($routeProvider) {
     .when('/ingredients/:ingredientId/edit', {
       templateUrl: 'views/editingredient.html',
       controller: 'IngredientCtrl'
+    })
+    .when('/schedule', {
+      templateUrl: 'views/schedule.html',
+      controller: 'ScheduleCtrl'
+    })
+    .when('/grocerylist', {
+      templateUrl: 'views/grocerylist.html',
+      controller: 'GrocerylistCtrl'
     })
     .otherwise({
       redirectTo: '/'
