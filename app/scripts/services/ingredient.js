@@ -9,35 +9,27 @@ app.factory('Ingredient', function($firebase, FIREBASE_URL, User) {
 
     create: function(ingredient) {
       if (User.signedIn()) {
-        var user = User.getCurrent();
-
-        ingredient.owner = user.username;
-
         return ingredients.$add(ingredient).then(function (ref) {
-          var ingredientId = ref.name();
-
-          User.ingredients(user.username).$set(ingredientId, ingredientId);
-
-          return ingredientId;
+          return ref.name();
         });
       }
     },
+
     find: function(ingredientId) {
       return $firebase(ref.child(ingredientId)).$asObject();
     },
+
     save: function(ingredient) {
-      return ingredient.$save().then(function (ref) {
-        return ref.name();
-      });
+      if (User.signedIn()) {
+        return ingredient.$save().then(function (ref) {
+          return ref.name();
+        });
+      }
     },
+
     delete: function(ingredient) {
       if (User.signedIn()) {
-        var user = User.getCurrent();
-        if (user.username === ingredient.owner) {
-          ingredients.$remove(ingredient).then(function () {
-            User.ingredients(user.username).$remove(ingredient.$id);
-          });
-        }
+        ingredients.$remove(ingredient);
       }
     }
   };

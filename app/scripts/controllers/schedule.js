@@ -33,5 +33,5 @@ app.controller('ScheduleCtrl', function($scope, User, Schedule, Day, Recipe) {
 
   $scope.removeRecipe = function(dayId, recipeId) {
     Day.removeRecipe(dayId, recipeId);
-  }
+  };
 });

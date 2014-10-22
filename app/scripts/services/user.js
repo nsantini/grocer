@@ -25,12 +25,6 @@ app.factory('User', function ($rootScope, $firebase, FIREBASE_URL, Auth, Schedul
     },
     signedIn: function () {
       return $rootScope.currentUser !== undefined;
-    },
-    recipes: function (username) {
-      return $firebase(new Firebase(FIREBASE_URL + 'user_recipes/' + username));
-    },
-    ingredients: function (username) {
-      return $firebase(new Firebase(FIREBASE_URL + 'user_ingredients/' + username));
     }
   };
 

@@ -4,17 +4,11 @@
 <div class="row" ng-repeat="day in days">
   <h3>{{day.$value}}</h3>
   <div class="row" ng-repeat="recipe in dayRecipes[day.$id]">
-    <div class="col-xs-1">
-
-    </div>
-    <div class="col-md-9 col-xs-11">
-
-      <div class="info">
-        <a href="#/recipes/{{ recipe.$id }}">
-          {{ recipe.$value }}
-        </a>
-        <span>&mdash; <a ng-click="removeRecipe(day.$id, recipe.$id)">remove</a></span>
-      </div>
+    <div class="col-md-10 col-xs-12">
+      <a href="#/recipes/{{ recipe.$id }}">
+        {{ recipe.$value }}
+      </a>
+      <a ng-click="removeRecipe(day.$id, recipe.$id)">remove</a>
     </div>
     <div class="col-md-2">
 

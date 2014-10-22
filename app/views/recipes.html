@@ -24,10 +24,7 @@
       <a href="#/recipes/{{ recipe.$id }}">
         {{ recipe.title }}
       </a>
-    </div>
-    <div>
-      <span>submitted by <a href="#/users/{{ recipe.owner }}">{{ recipe.owner }}</a></span>
-      <a ng-click="deleteRecipe(recipe)" ng-show="signedIn() && recipe.owner === currentUser.username">&mdash;delete</a>
+      <a ng-click="deleteRecipe(recipe)" ng-show="signedIn()">delete</a>
     </div>
   </div>
   <div class="col-md-2">
