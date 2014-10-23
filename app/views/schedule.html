@@ -1,25 +1,24 @@
-<div class="row">
+<div class="list-group">
   <h2>Meal Schedule</h2>
-</div>
-<div class="row" ng-repeat="day in days">
-  <h3>{{day.$value}}</h3>
-  <div class="row" ng-repeat="recipe in dayRecipes[day.$id]">
-    <div class="col-md-10 col-xs-12">
-      <a href="#/recipes/{{ recipe.$id }}">
-        {{ recipe.$value }}
-      </a>
-      <a ng-click="removeRecipe(day.$id, recipe.$id)">
-        <span class="glyphicon glyphicon-remove">
-      </a>
+  <div class="list-group-item" ng-repeat="day in days">
+    <h3>{{day.$value}}</h3>
+    <div class="list-group">
+      <div class="list-group-item" ng-repeat="recipe in dayRecipes[day.$id]">
+        <div>
+          <a href="#/recipes/{{ recipe.$id }}">
+            {{ recipe.$value }}
+          </a>
+          <a ng-click="removeRecipe(day.$id, recipe.$id)">
+            <span class="glyphicon glyphicon-remove">
+          </a>
+        </div>
+      </div>
     </div>
-    <div class="col-md-2">
-
-    </div>
+    <span  class="nullable">
+      <select ng-model="rec[day.$id]" ng-change="recipeSelected(day.$id)">
+        <option value="">-- choose recipe --</option>
+        <option ng-repeat="r in allRecipes" value="{{r.$id}}|{{r.title}}">{{r.title}}</option>
+      </select>
+    </span>
   </div>
-  <span  class="nullable">
-    <select ng-model="rec[day.$id]" ng-change="recipeSelected(day.$id)">
-      <option value="">-- choose recipe --</option>
-      <option ng-repeat="r in allRecipes" value="{{r.$id}}|{{r.title}}">{{r.title}}</option>
-    </select>
-  </span>
 </div>
