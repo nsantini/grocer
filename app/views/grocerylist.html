@@ -4,5 +4,8 @@
 <div class="list-group">
   <div class="list-group-item" ng-repeat="(key, value) in ingredients track by $index">
     {{ key }}: {{ value }}
+    <a ng-click="removeItem(key)">
+      <span class="glyphicon glyphicon-remove">
+    </a>
   </div>
 </div>

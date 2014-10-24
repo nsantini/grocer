@@ -10,4 +10,8 @@ app.controller('GrocerylistCtrl', function($scope, User, GroceryList) {
   $scope.$on('CurrentUserSet', function () {
     GroceryList.loadGroceryList($scope.ingredients);
   });
+
+  $scope.removeItem = function(key) {
+    delete $scope.ingredients[key];
+  };
 });
