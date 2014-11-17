@@ -11,28 +11,19 @@
     </div>
   </form>
 </div>
-<div class="row">
+<div>
   <h2>Recipes</h2>
 </div>
-<div class="row" ng-repeat="recipe in recipes">
-  <div class="col-xs-1">
-
-  </div>
-  <div class="col-md-9 col-xs-11">
-
-    <div class="info">
-      <a href="#/recipes/{{ recipe.$id }}">
-        {{ recipe.title }}
-      </a>
-      <a href="#/recipes/{{ recipe.$id }}/edit" ng-show="signedIn()">
-        <span class="glyphicon glyphicon-pencil"></span>
-      </a>
-      <a ng-click="deleteRecipe(recipe)" ng-show="signedIn()">
-        <span class="glyphicon glyphicon-remove">
-      </a>
-    </div>
-  </div>
-  <div class="col-md-2">
-
+<div class="list-group">
+  <div class="list-group-item" ng-repeat="recipe in recipes">
+    <a href="#/recipes/{{ recipe.$id }}">
+      {{ recipe.title }}
+    </a>
+    <a href="#/recipes/{{ recipe.$id }}/edit" ng-show="signedIn()">
+      <span class="glyphicon glyphicon-pencil"></span>
+    </a>
+    <a ng-click="deleteRecipe(recipe)" ng-show="signedIn()">
+      <span class="glyphicon glyphicon-remove">
+    </a>
   </div>
 </div>

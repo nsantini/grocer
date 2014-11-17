@@ -1,5 +1,5 @@
-<div class="row" ng-show="signedIn()">
-  <div class="col-xs-12">
+<div class="">
+  <div>
     <h2>{{recipe.title}}</h2>
     <a ng-click="deleteRecipe(recipe)" ng-show="signedIn()">
       <span class="glyphicon glyphicon-remove">
@@ -8,13 +8,13 @@
       <span class="glyphicon glyphicon-pencil"></span>
     </a>
   </div>
-  <div class="col-xs-12">
+  <div class="list-group">
     <h4>Ingredients</h4>
-    <p ng-repeat="ingredient in recipeIngredients">
+    <p class="list-group-item" ng-repeat="ingredient in recipeIngredients">
       {{ ingredient.$value }}
     </p>
   </div>
-  <div class="col-xs-12">
+  <div>
     <h4>Instructions</h4>
     <p>
       {{recipe.instructions}}
